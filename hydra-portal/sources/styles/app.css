@@ -1,0 +1,473 @@
+/*
+* Copyright (c) 2021 PSPACE, inc. KSAN Development Team ksan@pspace.co.kr
+* KSAN is a suite of free software: you can redistribute it and/or modify it under the terms of
+* the GNU General Public License as published by the Free Software Foundation, either version
+* 3 of the License.  See LICENSE for details
+*
+* 본 프로그램 및 관련 소스코드, 문서 등 모든 자료는 있는 그대로 제공이 됩니다.
+* KSAN 프로젝트의 개발자 및 개발사는 이 프로그램을 사용한 결과에 따른 어떠한 책임도 지지 않습니다.
+* KSAN 개발팀은 사전 공지, 허락, 동의 없이 KSAN 개발에 관련된 모든 결과물에 대한 LICENSE 방식을 변경 할 권리가 있습니다.
+ */
+/* dataview with qa cards */
+.webix_dataview .webix_dataview_item.tiles .webix_dataview_inner_item{
+	padding:11px;
+	line-height:20px;
+	font-size:14px;
+	color:#475466;
+}
+.userphoto, .userpic{
+	width:72px;
+	height:72px;
+	float:left;
+	margin-right: 8px;
+}
+.userpic{
+	background-color:#1a73c7;
+  	color:#fff;
+  	text-align:center;
+	line-height:55px;
+	font-size:33px;
+}
+.tasks{
+	float:right;
+	font-weight:500;
+	display:block;
+	font-size:16px;
+	line-height:16px;
+	color:#313131;
+}
+.qaname{
+	font-weight:500;
+	display:block;
+	color:#313131;
+}
+.stars{
+	display:block;
+	width:90px;
+	margin-left:80px;
+}
+.star{
+	margin-right:-3px !important;
+	cursor:pointer;
+	font-size:16px !important;
+}
+.stars .star.gold{
+	color:#FDBF4C;
+}
+.stars .star.grey, .stars .star:hover ~ .star{
+	color:#94A1B3;
+}
+.stars .star:hover, .stars:hover .star{
+	color:#FFD700;
+}
+/* geochart */
+path {
+    stroke:#D9D8D7;
+}
+/* grid */
+.status{
+	font-weight:500;
+}
+.pending{
+	color:#E2574C;
+}
+.complete{
+	color:#41ad7c;
+}
+.open{
+	color:#1CA1C1;
+}
+/* notifications */
+.notifications .webix_list_item,
+.notifications .webix_list_item.webix_selected{
+	line-height:20px;
+	padding:10px;
+}
+.notifications .webix_list_item .m_title{
+	font-weight:500;
+	color:#313131;
+}
+.notifications .webix_list_item .message{
+	display:block;
+	color:#475466;
+}
+/* iframes */
+.webix_view.ifr_template .webix_template{
+	padding:0px;
+}
+.webix_view.ifr_template > .webix_disabled{
+	opacity:1 !important;
+}
+
+/* icon button */
+.webix_icon_button:hover {
+	background-color: transparent !important;
+}
+
+/* allow scrolling for views */
+.allowOverflow {
+	overflow-y: auto !important;
+}
+
+/* icon buttons inside databases */
+.hoverButton:hover:before {
+	background-color: transparent !important;
+}
+
+/* datatable header styling */
+.webix_ss_header, .webix_hcolumn {
+	background: #f3fdff !important;
+	color: rgb(157, 157, 157) !important;
+	font-weight: 100 !important;
+}
+
+/* datatable erasing borders */
+.webix_dtable .webix_dtable_subview .webix_view {
+	border-left-color: transparent !important
+}
+
+/* switch styling to make them smaller */
+/* IMPORTANT: source code was changed to accomodate changes */
+.webix_switch_box {
+	height: 19px !important;
+	width: 36px !important;
+	margin-top: -9px !important;
+}
+.webix_switch_handle {
+	height: 15px !important;
+	width: 15px !important;
+	top: 1px !important;
+}
+.webix_el_radio .webix_custom_radio:before {
+	font-size: 19px !important;
+}
+
+.darkGray {
+	background-color: #f9faff !important;
+}
+
+/* smaller font for smaller search inputs */
+/* .searchSmaller > div:first-of-type > input {
+	font-size: 13px !important;
+} */
+
+.noLeftMargin {
+	margin-left: 0px !important;
+}
+
+/* centering checkboxes inside datatables */
+.checkboxCenter {
+	text-align: center !important;
+}
+
+/* adding a margin to accordion headers */
+.accordionLeftMargin > .webix_accordionitem_header > .webix_accordionitem_label {
+	margin-left: 5px !important;
+}
+
+/* adds an underline to an element */
+.bottomline {
+	border-bottom: 2px solid #E6E6E6 !important;
+}
+
+/* adds an topline to an element */
+.topline {
+	border-top: 2px solid #E6E6E6 !important;
+}
+
+
+/* .webix_all_tabs .webix_item_tab.webix_selected {
+	box-shadow: none !important;
+} */
+
+.webix_view.webix_layout_accordion {
+	background-color: white !important;
+}
+
+/* advanced settings accordion style changes */
+.advancedSettings {
+	font-size: 14px !important;
+}
+
+.advancedSettingsAccordion > .webix_accordionitem_header {
+	border-bottom-width: 0px !important;
+}
+
+/* add share window tabs styling */
+/* .shareTabbar {
+	background-color: #fbfbfc !important;
+} */
+
+/* new buttons styling */
+.new_style_primary .webix_el_box .webix_button {
+	background: white;
+    color: #1CA1C1;
+    border: 2px solid #1CA1C1;
+}
+
+.new_style_primary .webix_el_box .webix_button:hover {
+	background-color: #d4efff;
+}
+
+.new_style_primary .webix_el_box .webix_button:active {
+	background-color: #d4efff;
+	color:#167c96;
+}
+
+.new_style_primary .webix_el_box .webix_button:focus {
+	background-color: #d4efff;
+}
+
+.new_style_button  .webix_el_box .webix_button {
+	background: white;
+    color: #3a3d4e;
+    border: 2px solid #3a3d4e;
+}
+
+.new_style_button  .webix_el_box .webix_button:active {
+    color: #21222c;
+	background-color: #e6e7eb;
+}
+
+.check-button-style .webix_el_box .webix_button {
+	background: white;
+	color: #2C2F3C;
+	border: 1px solid #E6E6E6;
+}
+
+.check-button-style .webix_el_box .webix_button:focus {
+	background: white;
+	color: #2C2F3C;
+	border: 1px solid #E6E6E6;
+}
+
+.check-button-style .webix_el_box .webix_button:hover {
+	background: #f0f0f0;
+	color: #2C2F3C;
+	border: 1px solid #E6E6E6;
+}
+
+.check-button-style .webix_el_box .webix_button:active {
+	background: #f0f0f0;
+	color: #2C2F3C;
+	border: 1px solid #E6E6E6;
+}
+
+.search_mark {
+	background: #ffff00;
+}
+
+/* make datatable header text to 11px */
+.webix_hcell {
+	font-size: 11px !important;
+}
+
+/* make datatable text to 13px */
+.webix_cell {
+	font-size: 13px !important;
+}
+
+/* text to 13px */
+.webix_el_text input {
+	font-size: 13px !important;
+}
+
+/* label to 13px */
+.webix_inp_label {
+	font-size: 13px !important;
+}
+
+/* make richselect text to 13px */
+/* .webix_inp_static {
+	font-size: 13px !important;
+} */
+
+/* make datatable buttons smaller */
+.hoverButton > .webix_icon {
+	font-size: 16px !important;
+}
+
+.icon-button .webix_el_box .webix_icon_button .webix_icon  {
+	font-size: 16px !important;
+	height: 16px !important;
+	width: 16px !important;
+}
+
+.check-button .webix_el_box .webix_icon_button .webix_icon  {
+	color: #5ccce7;
+}
+
+.check-button .webix_el_box .webix_icon_button:hover .webix_icon  {
+	color: #5ccce7;
+}
+
+.webix_button {
+	font-size: 13px !important;
+}
+
+/* side bar title bold */
+.webix_sidebar_popup_title {
+	font-weight: 500 !important;
+}
+
+
+/* menu notification button styling */
+.menuNotificationButton .webix_el_box {
+	padding: 0 !important;
+}
+
+.menuNotificationButton .webix_el_box .webix_button {
+	text-align: left !important;
+	padding-left: 12px !important;
+	line-height: 40px !important;
+}
+
+.menuNotificationButton .webix_el_box .webix_button:hover {
+	background-color: #edeff5 !important;
+}
+
+.menuNotificationButton .webix_el_box .webix_button .webix_icon_btn {
+	margin-right: 8px !important;
+}
+
+.menuNotificationButton .webix_el_box .webix_button .button_label {
+	font-weight: 100;
+}
+
+.webix_el_label .webix_el_box {
+	font-size: 13px !important;
+}
+
+.webix_accordionitem_label {
+	padding-left: 10px !important;
+}
+
+.loginLabel > .webix_el_box {
+	font-size: 16px !important;
+}
+
+.s3_browser .webix_el_box .webix_button .webix_icon_btn {
+	font-size: 15px !important;
+}
+
+.contextmenu_icon {
+	font-size: 15px !important;
+}
+
+.webix_list_item.disabled {
+	opacity: 0.5 !important;
+	pointer-events: none !important;
+}
+
+input[readonly="true"], .webix_el_box > .webix_inp_static[aria-readonly="true"]
+{
+    background-color:#f5f6f8 !important;
+	cursor: not-allowed !important;
+}
+
+input[readonly="true"]:focus, .webix_el_box > .webix_inp_static[aria-readonly="true"]:focus
+{
+    border: 1px solid #DADEE0 !important;
+}
+
+.dashboardGrid > .webix_view {
+	background-color: rgb(244, 245, 245) !important;
+}
+
+.dashboard-panel {
+	border-top-color: transparent !important;
+	margin-top: -2px !important;
+}
+
+.webix_resize_handle {
+	display: none !important;
+}
+
+.dashboard-panel-header > .webix_view > .webix_template {
+	padding-left: 8px !important;
+	margin-top: -2px;
+	text-overflow: ellipsis;
+    overflow: hidden;
+	cursor:move;
+}
+
+.dashboard-panel-status {
+	cursor: pointer;
+	font-size: 17px;
+	text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.dashboard-panel-status-big {
+	cursor: pointer;
+	font-size: 32px;
+	text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.dashboard-panel-green {
+	color: rgba(50, 172, 45, 0.97);
+}
+
+.dashboard-panel-red {
+	color: rgba(255, 0, 0, 0.97);
+}
+
+.dashboard-panel-gray {
+	color: rgb(191, 191, 191);
+	font-weight: 100;
+	text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.dashboard-panel-gray-big {
+	color: rgb(191, 191, 191);
+	font-weight: 200;
+	font-size:18px;
+	text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.dashboard-panel-shares {
+	font-size: 15px;
+	text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.dashboard-panel-shares-big {
+	font-size: 20px;
+	text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.header_label .webix_el_box {
+	font-size: 15px !important;
+}
+
+.pool_info_template > .webix_template {
+	padding-left: 10px !important;
+}
+
+.pool_add_button > div:first-child {
+	padding: 0 !important;
+}
+
+.storage_datatable .webix_column > div {
+	border-bottom-color: transparent !important;
+	box-shadow: none !important;
+}
+
+.dashboard-panel-pool {
+	font-size: 17px;
+	text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.scrubRunLabel {
+	border-color: transparent !important;
+	line-height: 20px;
+}
+
+.scrubRunLabel > .webix_template {
+	padding: 4px 0px !important;
+}

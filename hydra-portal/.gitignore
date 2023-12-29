@@ -1,0 +1,9 @@
+.vscode/
+.idea/
+codebase/
+node_modules/
+*.log
+dist/
+*.bat
+*.sh
+*.ps1

@@ -1,0 +1,42 @@
+kind: pipeline
+name: default
+
+steps:
+- name: preview
+  image: registry.webix.io/js-build-env
+  when:
+    event:
+      - push
+    branch:
+      exclude:
+        - release
+  environment:
+    PREVIEW_HOOK_TOKEN:
+      from_secret: preview_hook_token
+    AWS_ACCESS_KEY_ID:
+      from_secret: aws_access_key_id
+    AWS_SECRET_ACCESS_KEY:
+      from_secret: aws_secret_access_key
+  commands:
+    - yarn install --pure-lockfile
+    - yarn build
+    - /bin/bash ./deploy.sh
+
+- name: release
+  image: registry.webix.io/js-build-env
+  when:
+    event:
+      - push
+    branch:
+      - release
+  environment:
+    DEPLOY_HOOK_TOKEN:
+      from_secret: deploy_hook_token
+    AWS_ACCESS_KEY_ID:
+      from_secret: aws_access_key_id
+    AWS_SECRET_ACCESS_KEY:
+      from_secret: aws_secret_access_key
+  commands:
+    - yarn install --pure-lockfile
+    - yarn standalone
+    - /bin/bash ./deploy.sh

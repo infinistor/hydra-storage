@@ -1,0 +1,47 @@
+{
+  "name": "webix-jet-app",
+  "version": "1.1.0",
+  "description": "Webix Jet App",
+  "main": "sources/myapp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint sources/",
+    "build": "webpack --env.production true",
+    "module": "webpack --env.production true --env.module true",
+    "standalone": "webpack --env.production true --env.module true --env.standalone true",
+    "start": "webpack-dev-server --host 0.0.0.0"
+  },
+  "keywords": [
+    "webix",
+    "jet"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.4.0",
+    "css-loader": "^6.7.3",
+    "eslint": "^8.34.0",
+    "file-loader": "^0.11.2",
+    "html-webpack-plugin": "^5.5.0",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.11.1"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.20.2",
+    "@hapi/cryptiles": "^6.0.1",
+    "@hapi/hoek": "^11.0.2",
+    "ajv": "^8.12.0",
+    "babel-loader": "^8.0.6",
+    "browserslist": "^4.21.5",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
+    "mini-css-extract-plugin": "^2.7.2",
+    "node-jet": "^3.0.2",
+    "path-browserify": "^1.0.1",
+    "stream-browserify": "^3.0.0",
+    "webix-jet": "^2.0.0"
+  }
+}

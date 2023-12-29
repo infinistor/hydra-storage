@@ -1,0 +1,4 @@
+.vscode/
+.env
+*.bat
+linux/

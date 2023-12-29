@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>QA dashboard</title>
+	<!-- Webix Library -->
+	<script type="text/javascript" src="//cdn.webix.com/pro/edge/webix.js?v=6.0.0"></script>
+	<link rel="stylesheet" type="text/css" href="//cdn.webix.com/pro/edge/webix.css?v=6.0.0">
+
+	<!-- Material Design Icons -->
+	<link rel="stylesheet" type="text/css" href="//cdn.materialdesignicons.com/2.7.94/css/materialdesignicons.css">
+
+	<!-- Error tracking -->
+	<script src="https://cdn.ravenjs.com/3.19.1/raven.min.js" crossorigin="anonymous"></script>
+
+	<!-- App -->
+	<script type="text/javascript" src="codebase/myapp.js"></script>
+	<link rel="stylesheet" type="text/css" href="codebase/myapp.css">
+	
+	<!-- NAVBAR -->
+	<script type="text/javascript" src="/demos/common/nav.js"></script>
+	<link rel="stylesheet" type="text/css" href="/demos/common/nav.css">
+</head>
+<body>
+	<script>
+		if (!webix.env.touch && webix.env.scrollSize && webix.CustomScroll)
+			webix.CustomScroll.init();
+			
+		webix.protoUI({
+			name:"qa-dashboard-demo",
+			app: webixjetapp.default
+		}, webix.ui.jetapp);
+
+		webix.ready(function(){
+			webix.ui({
+				type:"clean", rows:[
+					{ view:"qa-dashboard-demo" },
+					{ view:"navbar", value:"qa-dashboard" }
+				]
+			});
+		});
+	</script>
+</body>
+</html>

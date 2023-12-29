@@ -1,0 +1,7 @@
+APP:
+  part: 3030
+db:
+  host: localhost
+  user: root
+  password: qwe123
+  database: hydra

@@ -1,0 +1,6103 @@
+definitions:
+  main.ACL:
+    properties:
+      permission:
+        example: FULL_CONTROL
+        type: string
+      userType:
+        example: Owner
+        type: string
+    type: object
+  main.AddDiskGroups:
+    properties:
+      diskGroups:
+        items:
+          $ref: '#/definitions/main.NewDiskGroup'
+        type: array
+    type: object
+  main.BondInterface:
+    properties:
+      bond_primary:
+        description: primary interface
+        example: ens161
+        type: string
+      bond_reselect:
+        description: always, better, failure
+        example: always
+        type: string
+      bond_type:
+        description: balance-rr, active-backup, balance-xor, broadcast, 802.3ad, balance-tlb,
+          balance-alb
+        example: active-backup
+        type: string
+      dhcp:
+        description: YES, NO
+        example: "NO"
+        type: string
+      gateway:
+        example: ""
+        type: string
+      interface:
+        example: bond0
+        type: string
+      ip:
+        example: 10.10.10.202
+        type: string
+      netmask:
+        example: "24"
+        type: string
+      slave_interfaces:
+        example:
+        - ens161
+        - ens224
+        items:
+          type: string
+        type: array
+    type: object
+  main.ChapUser:
+    properties:
+      chap_name:
+        type: string
+      id:
+        type: string
+      password:
+        type: string
+      password_change_date:
+        type: string
+      update_date:
+        type: string
+    type: object
+  main.ChapUserPost:
+    properties:
+      chap_name:
+        example: dev1-user1
+        type: string
+      password:
+        example: password123456
+        type: string
+    type: object
+  main.ControlInterface:
+    properties:
+      action:
+        example: Activate
+        type: string
+      interface:
+        example: bond0
+        type: string
+    type: object
+  main.CronJob:
+    properties:
+      crontabString:
+        type: string
+      datasetRefId:
+        type: string
+      everySecond:
+        type: integer
+      id:
+        type: string
+      operation:
+        type: string
+      partitionRefId:
+        type: string
+      poolRefId:
+        type: string
+      repeatType:
+        type: string
+    type: object
+  main.CronJob_POST:
+    properties:
+      crontab_string:
+        type: string
+      repeat_type:
+        type: string
+    type: object
+  main.Dataset:
+    properties:
+      comment:
+        type: string
+      dataset_name:
+        type: string
+      id:
+        type: string
+      pool_ref_id:
+        type: string
+      quota:
+        type: integer
+      remark:
+        type: string
+      update_date:
+        type: string
+    type: object
+  main.DeleteDiskGroup:
+    properties:
+      diskGroupName:
+        type: string
+      disks:
+        items:
+          type: string
+        type: array
+    type: object
+  main.Disk:
+    properties:
+      name:
+        type: string
+      size:
+        type: string
+    type: object
+  main.DiskGroup:
+    properties:
+      configuration:
+        type: string
+      disks:
+        items:
+          type: string
+        type: array
+    type: object
+  main.DiskReplacement:
+    properties:
+      new_disk:
+        type: string
+      old_disk:
+        type: string
+    type: object
+  main.Export:
+    properties:
+      comment:
+        type: string
+      dataset_ref_id:
+        type: string
+      enabled:
+        type: string
+      export_name:
+        type: string
+      id:
+        type: string
+      update_date:
+        type: string
+    type: object
+  main.Export_Get:
+    properties:
+      comment:
+        type: string
+      dataset_path:
+        type: string
+      enabled:
+        type: string
+      export_name:
+        type: string
+      id:
+        type: string
+    type: object
+  main.Export_Post:
+    properties:
+      comment:
+        type: string
+      dataset_ref_id:
+        type: string
+      enabled:
+        type: string
+      export_name:
+        type: string
+    type: object
+  main.Export_Put:
+    properties:
+      comment:
+        type: string
+      enabled:
+        type: string
+    type: object
+  main.GroupCreate:
+    properties:
+      comment:
+        example: comment
+        type: string
+      group_id:
+        example: group-name-1
+        type: string
+      remark:
+        example: remark
+        type: string
+    type: object
+  main.GroupUpdate:
+    properties:
+      comment:
+        example: comment
+        type: string
+    type: object
+  main.GroupsDelAppend:
+    properties:
+      groups_append:
+        example:
+        - group-name-1
+        - group-name-2
+        items:
+          type: string
+        type: array
+      groups_del:
+        example:
+        - group-name-1
+        - group-name-2
+        items:
+          type: string
+        type: array
+    type: object
+  main.Hostname:
+    properties:
+      hostname:
+        description: new hostname
+        example: user1
+        type: string
+    type: object
+  main.KsanActive:
+    properties:
+      IsKsanAgentActive:
+        type: boolean
+      IsKsanGWActive:
+        type: boolean
+      IsKsanOSDActive:
+        type: boolean
+    type: object
+  main.KsanConfiguration:
+    properties:
+      access_key:
+        type: string
+      archive_name:
+        type: string
+      bucket_name:
+        type: string
+      dataset_name:
+        type: string
+      dataset_ref_id:
+        type: string
+      disk_name:
+        type: string
+      disk_pool_name:
+        type: string
+      enable:
+        description: '"n": disable, "y": enable'
+        type: string
+      id:
+        type: string
+      lifecycle_days:
+        type: integer
+      pool_name:
+        type: string
+      secret_key:
+        type: string
+      update_date:
+        type: string
+      user_name:
+        type: string
+    type: object
+  main.KsanDiskPool:
+    properties:
+      defaultDiskPool:
+        type: boolean
+      description:
+        type: string
+      diskPoolType:
+        type: string
+      ec:
+        properties:
+          k:
+            type: integer
+          m:
+            type: integer
+        type: object
+      id:
+        type: string
+      modDate:
+        type: string
+      modId:
+        type: string
+      modName:
+        type: string
+      name:
+        type: string
+      regDate:
+        type: string
+      regId:
+        type: string
+      regName:
+        type: string
+      replicationType:
+        type: string
+    type: object
+  main.KsanDiskPools:
+    properties:
+      Items:
+        items:
+          $ref: '#/definitions/main.KsanDiskPool'
+        type: array
+      countPerPage:
+        type: integer
+      endPageNo:
+        type: integer
+      haveNextPage:
+        type: boolean
+      haveNextPageSection:
+        type: boolean
+      havePreviousPage:
+        type: boolean
+      havePreviousPageSection:
+        type: boolean
+      pageNo:
+        type: integer
+      pageNos:
+        items:
+          type: integer
+        type: array
+      pagePerSection:
+        type: integer
+      skips:
+        type: integer
+      startPageNo:
+        type: integer
+      totalCount:
+        type: integer
+      totalPage:
+        type: integer
+    type: object
+  main.KsanGWConfig:
+    properties:
+      authorization:
+        type: string
+      cache_diskpath:
+        type: string
+      endpoint:
+        type: string
+      jetty_max_idle_timeout:
+        type: integer
+      jetty_max_threads:
+        type: integer
+      keystore_password:
+        type: string
+      keystore_path:
+        type: string
+      logging:
+        type: string
+      max_file_size:
+        type: integer
+      max_list_size:
+        type: integer
+      max_timeskew:
+        type: integer
+      objmanager_count:
+        type: integer
+      osd_client_count:
+        type: integer
+      osd_port:
+        type: integer
+      performance_mode:
+        type: string
+      secure_endpoint:
+        type: string
+    type: object
+  main.KsanUser:
+    properties:
+      AccessKey:
+        type: string
+      Email:
+        type: string
+      Id:
+        type: string
+      Name:
+        type: string
+      SecretKey:
+        type: string
+    type: object
+  main.LifecycleRule:
+    properties:
+      AbortIncompleteMultipartUpload:
+        type: integer
+      Expiration:
+        type: integer
+      Prefix:
+        type: string
+      Status:
+        type: integer
+      Transitions:
+        items:
+          properties:
+            Days:
+              type: integer
+            StorageClass:
+              type: string
+          type: object
+        type: array
+    type: object
+  main.Log:
+    properties:
+      devicereportedtime:
+        type: string
+      fromhost:
+        type: string
+      message:
+        type: string
+      priority:
+        type: integer
+      syslogtag:
+        type: string
+    type: object
+  main.LogConfig:
+    properties:
+      facility:
+        type: string
+      id:
+        type: string
+      log_level:
+        type: integer
+      process_name:
+        type: string
+      update_date:
+        type: string
+    type: object
+  main.LogConfigPost:
+    properties:
+      log_level:
+        example: 3
+        type: integer
+    type: object
+  main.Logging:
+    properties:
+      target-bucket:
+        example: bucket-1
+        type: string
+      target-folder:
+        example: logs/
+        type: string
+    type: object
+  main.ManagementInterfaceUpdate:
+    properties:
+      dns_list:
+        example:
+        - 8.8.8.8
+        - ' 8.8.4.4'
+        items:
+          type: string
+        type: array
+      previous_interface:
+        example: ens192
+        type: string
+      previous_interface_gateway:
+        example: 192.168.13.254
+        type: string
+      target_interface:
+        example: ens161
+        type: string
+    type: object
+  main.NFSConf:
+    properties:
+      anongid_guest:
+        type: integer
+      anongid_root:
+        type: integer
+      anonuid_guest:
+        type: integer
+      anonuid_root:
+        type: integer
+      custom_port:
+        type: string
+      custom_port_nlockmgr:
+        type: integer
+      custom_port_statd:
+        type: integer
+      id:
+        type: string
+      maximum_nfs_protocol:
+        type: string
+      nfs_v4_domain:
+        type: string
+      read_packet_size:
+        type: integer
+      thread_count:
+        type: integer
+      unix_extensions:
+        type: string
+      unix_permission:
+        type: string
+      update_date:
+        type: string
+      write_packet_size:
+        type: integer
+    type: object
+  main.NFSConf_Post:
+    properties:
+      enable:
+        type: string
+      maximum_nfs_protocol:
+        type: string
+      thread_count:
+        type: integer
+    type: object
+  main.NFSPanel:
+    properties:
+      active:
+        type: boolean
+      enabled_exports_number:
+        type: integer
+      total_exports_number:
+        type: integer
+      uptime:
+        type: string
+    type: object
+  main.NFSPermission:
+    properties:
+      async:
+        type: string
+      client:
+        type: string
+      comment:
+        type: string
+      crossmnt:
+        type: string
+      enabled:
+        type: string
+      export_ref_id:
+        type: string
+      id:
+        type: string
+      insecure:
+        type: string
+      privilege:
+        type: string
+      security:
+        type: string
+      squash:
+        type: string
+      update_date:
+        type: string
+    type: object
+  main.NFSPermission_Post:
+    properties:
+      async:
+        type: string
+      client:
+        type: string
+      crossmnt:
+        type: string
+      export_name:
+        type: string
+      insecure:
+        type: string
+      privilege:
+        type: string
+      squash:
+        type: string
+    type: object
+  main.NetworkInterfaceVLAN:
+    properties:
+      dhcp:
+        example: "NO"
+        type: string
+      gateway:
+        example: none
+        type: string
+      interface:
+        example: ens102.10
+        type: string
+      ip:
+        example: 192.168.13.201
+        type: string
+      netmask:
+        example: "24"
+        type: string
+      parent:
+        example: ens102
+        type: string
+      vlan_id:
+        example: "10"
+        type: string
+    type: object
+  main.NewDiskGroup:
+    properties:
+      configuration:
+        type: string
+      disks:
+        items:
+          type: string
+        type: array
+    type: object
+  main.PasswordChange:
+    properties:
+      grafana_ip:
+        example: http://192.168.1.100/grafana
+        type: string
+      new_password:
+        example: "123456"
+        type: string
+      old_password:
+        example: "123456"
+        type: string
+    type: object
+  main.Pool:
+    properties:
+      comment:
+        type: string
+      id:
+        type: string
+      path:
+        type: string
+      pool_name:
+        type: string
+      quota:
+        type: integer
+      remark:
+        type: string
+      update_date:
+        type: string
+    type: object
+  main.PutNetworkInterface:
+    properties:
+      dhcp:
+        example: "NO"
+        type: string
+      gateway:
+        example: 192.168.13.254
+        type: string
+      ip:
+        example: 192.168.13.201
+        type: string
+      netmask:
+        example: "24"
+        type: string
+    type: object
+  main.RefreshToken:
+    properties:
+      refresh_token:
+        description: refresh token
+        example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Nzg4NzQyNjIsInJlZnJlc2hfdXVpZCI6IjAxODQyMzlhLWRmNGMtNDc2NC05YzIxLTIxNzBjZmMxNWMyNCIsInVzZXJfaWQiOjF9.BDcAKqXzvKJiNyCGellT0JnMdUlp0OiySfQ6vUxg09A
+        type: string
+    type: object
+  main.Response:
+    properties:
+      error:
+        description: error message
+        type: string
+      id:
+        description: id
+        type: string
+      invalid:
+        description: invalid request
+        type: boolean
+    type: object
+  main.S3BucketACLRequest:
+    properties:
+      bucket:
+        type: string
+      credentials:
+        $ref: '#/definitions/main.S3SessionCredentials'
+      permissions:
+        items:
+          $ref: '#/definitions/main.ACL'
+        type: array
+    type: object
+  main.S3BucketLifecycleRequest:
+    properties:
+      bucket:
+        type: string
+      credentials:
+        $ref: '#/definitions/main.S3SessionCredentials'
+      rules:
+        items:
+          $ref: '#/definitions/main.LifecycleRule'
+        type: array
+    type: object
+  main.S3BucketLoggingRequest:
+    properties:
+      bucket:
+        example: bucket-1
+        type: string
+      credentials:
+        $ref: '#/definitions/main.S3SessionCredentials'
+      logging:
+        $ref: '#/definitions/main.Logging'
+    type: object
+  main.S3BucketObjectListRequest:
+    properties:
+      bucket:
+        example: bucket-1
+        type: string
+      credentials:
+        $ref: '#/definitions/main.S3SessionCredentials'
+      prefix:
+        example: folder1/
+        type: string
+    type: object
+  main.S3BucketObjectRequest:
+    properties:
+      bucket:
+        example: bucket-1
+        type: string
+      credentials:
+        $ref: '#/definitions/main.S3SessionCredentials'
+      filename:
+        example: folder1/file1.txt
+        type: string
+    type: object
+  main.S3BucketRequest:
+    properties:
+      bucket:
+        example: bucket-1
+        type: string
+      credentials:
+        $ref: '#/definitions/main.S3SessionCredentials'
+    type: object
+  main.S3BucketTaggingRequest:
+    properties:
+      bucket:
+        example: bucket-1
+        type: string
+      credentials:
+        $ref: '#/definitions/main.S3SessionCredentials'
+      tags:
+        items:
+          $ref: '#/definitions/main.Tag'
+        type: array
+    type: object
+  main.S3BucketVersioningRequest:
+    properties:
+      bucket:
+        type: string
+      credentials:
+        $ref: '#/definitions/main.S3SessionCredentials'
+      status:
+        type: string
+    type: object
+  main.S3ConfigurationGet:
+    properties:
+      dataset_name:
+        type: string
+      dataset_ref_id:
+        type: string
+      enable:
+        description: '"n": disable, "y": enable'
+        type: string
+      http_port:
+        type: integer
+      https_port:
+        type: integer
+      id:
+        type: string
+      interface_name:
+        type: string
+      max_file_size:
+        type: integer
+      max_idle_timeout:
+        type: integer
+      max_threads:
+        type: integer
+      max_time_skew:
+        type: integer
+      pool_name:
+        type: string
+      storage_path:
+        type: string
+    type: object
+  main.S3ConfigurationPost:
+    properties:
+      dataset_ref_id:
+        type: string
+      enable:
+        description: '"n": disable, "y": enable'
+        example: "y"
+        type: string
+      http_port:
+        example: 7171
+        type: integer
+      https_port:
+        example: 7554
+        type: integer
+      interface_name:
+        example: ens192
+        type: string
+      max_file_size:
+        example: 3221225472
+        type: integer
+      max_idle_timeout:
+        example: 60000
+        type: integer
+      max_threads:
+        example: 1000
+        type: integer
+      max_time_skew:
+        example: 9000
+        type: integer
+    type: object
+  main.S3Credentials:
+    properties:
+      access_key:
+        type: string
+      secret_key:
+        type: string
+    type: object
+  main.S3Panel:
+    properties:
+      active:
+        type: boolean
+      uptime:
+        type: string
+    type: object
+  main.S3SessionCredentials:
+    properties:
+      access_key:
+        example: 923d1e023c7542ba4cdc
+        type: string
+      access_secret:
+        example: f712ab17ae4e7c53f754c936
+        type: string
+      url:
+        example: http://192.168.11.229:8080
+        type: string
+    type: object
+  main.SMBConf:
+    properties:
+      bind_interfaces_only:
+        type: string
+      id:
+        type: string
+      interfaces:
+        type: string
+      log_level:
+        type: string
+      max_log_size:
+        type: integer
+      server_string:
+        type: string
+      smb2_leases:
+        type: string
+      store_dos_attributes:
+        type: string
+      unix_extensions:
+        type: string
+      update_date:
+        type: string
+      use_sendfile:
+        type: string
+      veto_files:
+        type: string
+      vfs_option:
+        type: string
+      workgroup:
+        type: string
+    type: object
+  main.SMBConfPut:
+    properties:
+      bind_interfaces_only:
+        example: "y"
+        type: string
+      interfaces:
+        example: eth0,eth1
+        type: string
+      log_level:
+        type: integer
+      max_log_size:
+        type: integer
+      server_string:
+        example: Samba Server Version 4.9.5
+        type: string
+      smb2_leases:
+        example: "y"
+        type: string
+      store_dos_attributes:
+        example: "y"
+        type: string
+      unix_extensions:
+        example: "n"
+        type: string
+      use_sendfile:
+        example: "y"
+        type: string
+      veto_files:
+        example: /._*/.apdisk/.AppleDB/.App
+        type: string
+      vfs_option:
+        example: streams_xattr
+        type: string
+      workgroup:
+        example: WORKGROUP
+        type: string
+    type: object
+  main.SMBGroupMap:
+    properties:
+      group_name:
+        type: string
+      id:
+        type: string
+      permission:
+        type: string
+      share_id:
+        type: string
+      update_date:
+        type: string
+    type: object
+  main.SMBGroups:
+    properties:
+      comment:
+        type: string
+      group_id:
+        type: string
+      group_name:
+        type: string
+      permission:
+        type: string
+    type: object
+  main.SMBPanel:
+    properties:
+      active:
+        type: boolean
+      enabled_shares_number:
+        type: integer
+      total_shares_number:
+        type: integer
+      uptime:
+        type: string
+    type: object
+  main.SMBUserMap:
+    properties:
+      id:
+        type: string
+      permission:
+        type: string
+      share_id:
+        type: string
+      update_date:
+        type: string
+      username:
+        type: string
+    type: object
+  main.SMBUsers:
+    properties:
+      comment:
+        type: string
+      permission:
+        type: string
+      user_id:
+        type: string
+      user_name:
+        type: string
+    type: object
+  main.ScrubStatus:
+    properties:
+      last_run:
+        type: string
+      next_run:
+        type: string
+      status:
+        type: string
+    type: object
+  main.Share:
+    properties:
+      browsable:
+        type: string
+      case_sensitive:
+        type: string
+      comment:
+        type: string
+      dataset_ref_id:
+        type: string
+      delete_veto_files:
+        type: string
+      enable:
+        type: string
+      full_audit:
+        type: string
+      grace_period:
+        type: integer
+      guest_access:
+        type: string
+      id:
+        type: string
+      inherit_owner:
+        type: string
+      inherit_permissions:
+        type: string
+      kernel_share_modes:
+        type: string
+      level2_oplock:
+        type: string
+      mac_support:
+        type: string
+      network_access_allow:
+        type: string
+      network_access_allow_except:
+        type: string
+      network_access_deny:
+        type: string
+      network_access_deny_except:
+        type: string
+      oplock:
+        type: string
+      posix_locking:
+        type: string
+      read_list:
+        type: string
+      share_name:
+        type: string
+      smb2_leases:
+        type: string
+      update_date:
+        type: string
+      valid_users:
+        type: string
+      veto_files:
+        type: string
+      worm:
+        type: string
+      writable:
+        type: string
+    type: object
+  main.SharePost:
+    properties:
+      browsable:
+        example: "y"
+        type: string
+      case_sensitive:
+        example: "y"
+        type: string
+      comment:
+        type: string
+      dataset_ref_id:
+        type: string
+      delete_veto_files:
+        type: string
+      enabled:
+        example: "y"
+        type: string
+      full_audit:
+        type: string
+      grace_period:
+        type: integer
+      guest_access:
+        example: "y"
+        type: string
+      inherit_owner:
+        example: "y"
+        type: string
+      inherit_permissions:
+        example: "y"
+        type: string
+      kernel_share_modes:
+        example: "y"
+        type: string
+      level2_oplocks:
+        example: "y"
+        type: string
+      mac_support:
+        example: "y"
+        type: string
+      network_access_allow:
+        type: string
+      network_access_allow_except:
+        type: string
+      network_access_deny:
+        type: string
+      network_access_deny_except:
+        type: string
+      oplock:
+        example: "y"
+        type: string
+      posix_locking:
+        example: "y"
+        type: string
+      read_list:
+        type: string
+      share_name:
+        example: share1
+        type: string
+      valid_users:
+        type: string
+      veto_files:
+        type: string
+      worm:
+        type: string
+      writable:
+        example: "y"
+        type: string
+    type: object
+  main.Snapshot_Get:
+    properties:
+      compression:
+        type: string
+      full_path:
+        type: string
+      guid:
+        type: string
+      pool_name:
+        type: string
+      pool_ref_id:
+        type: string
+      record_size:
+        type: string
+    type: object
+  main.SnapshotList:
+    properties:
+      comment:
+        type: string
+      data:
+        items:
+          $ref: '#/definitions/main.SnapshotList'
+        type: array
+      guid:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      open:
+        type: boolean
+      refer:
+        type: string
+      update_date:
+        type: string
+      used:
+        type: string
+      uuid:
+        type: string
+    type: object
+  main.SnapshotNameCheck:
+    properties:
+      dataset_name:
+        type: string
+      pool_name:
+        type: string
+      snapshot_name:
+        type: string
+    type: object
+  main.Tag:
+    properties:
+      Key:
+        type: string
+      Value:
+        type: string
+    type: object
+  main.TimeData:
+    properties:
+      local_time:
+        example: "2023-03-15 16:01:56"
+        type: string
+      ntp_server_list:
+        example: 0.asia.pool.ntp.org 1.asia.pool.ntp.org 2.asia.pool.ntp.org 3.asia.pool.ntp.org
+        type: string
+      ntp_service:
+        example: "y"
+        type: string
+      time_zone:
+        example: Asia/Seoul
+        type: string
+    type: object
+  main.User:
+    properties:
+      id:
+        description: user id
+        example: 1
+        type: integer
+      password:
+        description: password
+        example: password
+        type: string
+      username:
+        description: username
+        example: username
+        type: string
+    type: object
+  main.UserCreate:
+    properties:
+      comment:
+        example: comment
+        type: string
+      email:
+        example: a@gmail.com
+        type: string
+      name:
+        example: rina
+        type: string
+      password:
+        example: "12345678"
+        type: string
+      user_id:
+        example: user_name_1
+        type: string
+    type: object
+  main.UserUpdate:
+    properties:
+      comment:
+        example: comment
+        type: string
+      email:
+        example: a@gmail.com
+        type: string
+      name:
+        example: rina
+        type: string
+      password:
+        example: "12345678"
+        type: string
+    type: object
+  main.UsersDelAppend:
+    properties:
+      users_append:
+        example:
+        - user3
+        - user4
+        items:
+          type: string
+        type: array
+      users_del:
+        example:
+        - user1
+        - user2
+        items:
+          type: string
+        type: array
+    type: object
+  main.ZFileSystem:
+    properties:
+      available:
+        type: string
+      comment:
+        type: string
+      compression:
+        type: string
+      dedup:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      pool_ref_id:
+        type: string
+      quota:
+        type: string
+      record_size:
+        type: string
+      refer:
+        type: string
+      reservation:
+        type: string
+      used:
+        type: string
+    type: object
+  main.ZFileSystem_Modify:
+    properties:
+      comment:
+        type: string
+      compression:
+        type: string
+      dedup:
+        type: string
+      quota:
+        type: string
+      record_size:
+        type: string
+      reservation:
+        type: string
+    type: object
+  main.ZFilesystem_Post:
+    properties:
+      comment:
+        type: string
+      compression:
+        type: string
+      dedup:
+        type: string
+      name:
+        type: string
+      quota:
+        type: string
+      record_size:
+        type: string
+      reservation:
+        type: string
+    type: object
+  main.ZFilesystemCheckName:
+    properties:
+      dataset_name:
+        type: string
+      pool_name:
+        type: string
+    type: object
+  main.ZFilesystemCheckService:
+    properties:
+      service:
+        type: string
+      used:
+        type: boolean
+    type: object
+  main.ZFilesystemClone:
+    properties:
+      comment:
+        type: string
+      compression:
+        type: string
+      dataset_name:
+        type: string
+      pool_ref_id:
+        type: string
+      quota:
+        type: string
+      record_size:
+        type: string
+      reservation:
+        type: string
+      snapshot_full_path:
+        type: string
+    type: object
+  main.ZPool_Get:
+    properties:
+      alloc:
+        type: string
+      altroot:
+        type: string
+      available:
+        type: string
+      available_and_allocated_ratio:
+        type: integer
+      cap:
+        type: string
+      ckpoint:
+        type: string
+      compression:
+        type: string
+      configuration:
+        type: string
+      dedup:
+        type: string
+      dedupratio:
+        type: string
+      expandsz:
+        type: string
+      frag:
+        type: string
+      free:
+        type: string
+      health:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      refer:
+        type: string
+      size:
+        type: string
+      used:
+        type: string
+    type: object
+  main.ZPool_Modify:
+    properties:
+      compression:
+        type: string
+    type: object
+  main.ZPool_Post:
+    properties:
+      cache_disks:
+        items:
+          type: string
+        type: array
+      compression:
+        type: string
+      configuration:
+        type: string
+      dedup:
+        type: string
+      disk_groups:
+        items:
+          $ref: '#/definitions/main.DiskGroup'
+        type: array
+      log_disks:
+        items:
+          type: string
+        type: array
+      name:
+        type: string
+      spare_disks:
+        items:
+          type: string
+        type: array
+    type: object
+  main.ZScrub:
+    properties:
+      completion_percent:
+        type: string
+      end_time:
+        type: string
+      errors:
+        type: string
+      id:
+        type: string
+      issued:
+        type: string
+      log:
+        type: string
+      pool_ref_id:
+        type: string
+      progress_time:
+        type: string
+      repaired:
+        type: string
+      scanned:
+        type: string
+      start_time:
+        type: string
+      status:
+        type: string
+      total:
+        type: string
+    type: object
+  main.ZSnapshot_Post:
+    properties:
+      comment:
+        type: string
+      name:
+        type: string
+    type: object
+  main.ZpoolStatus:
+    properties:
+      cksum:
+        type: string
+      comment:
+        type: string
+      data:
+        items:
+          $ref: '#/definitions/main.ZpoolStatus'
+        type: array
+      id:
+        type: string
+      open:
+        type: boolean
+      read:
+        type: string
+      size:
+        type: string
+      status:
+        type: string
+      value:
+        type: string
+      write:
+        type: string
+    type: object
+info:
+  contact: {}
+  description: Hydra Server
+  title: Hydra Backend API
+paths:
+  /api/change-hostname:
+    post:
+      consumes:
+      - application/json
+      description: Change hostname
+      parameters:
+      - description: new hostname
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/main.Hostname'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Change hostname
+      tags:
+      - hostname
+  /api/change-password:
+    post:
+      consumes:
+      - application/json
+      description: Change password
+      parameters:
+      - description: new password
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/main.PasswordChange'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Password changed successfully
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Change password
+      tags:
+      - auth
+  /api/chap-users:
+    get:
+      description: Get Chap Users
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/main.ChapUser'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get Chap Users
+      tags:
+      - chap_user
+    post:
+      consumes:
+      - application/json
+      description: Create Chap User
+      parameters:
+      - description: Chap User
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/main.ChapUserPost'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Chap User Created
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Create Chap User
+      tags:
+      - chap_user
+  /api/chap-users/{id}:
+    delete:
+      description: Delete Chap User
+      parameters:
+      - description: Chap User ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Chap User Deleted
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Delete Chap User
+      tags:
+      - chap_user
+    get:
+      description: Get Chap User
+      parameters:
+      - description: Chap User ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.ChapUser'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get Chap User
+      tags:
+      - chap_user
+    put:
+      consumes:
+      - application/json
+      description: Edit Chap User
+      parameters:
+      - description: Chap User ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Chap User
+        in: body
+        name: body
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Chap User Deleted
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Edit Chap User
+      tags:
+      - chap_user
+  /api/chap-users/chap-user-id-taken/{chapUserId}:
+    get:
+      description: Check if a chap user exists
+      parameters:
+      - description: Chap User ID
+        in: path
+        name: chapUserId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Chap User Exists
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Check if a chap user exists
+      tags:
+      - chap_user
+  /api/dashboard/hydranfs:
+    get:
+      consumes:
+      - application/json
+      description: Get NFS Panel Info
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.NFSPanel'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get NFS Panel Info
+      tags:
+      - dashboard
+  /api/dashboard/hydras3:
+    get:
+      consumes:
+      - application/json
+      description: Get S3 Panel Info
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.S3Panel'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get S3 Panel Info
+      tags:
+      - dashboard
+  /api/dashboard/hydrasmb:
+    get:
+      consumes:
+      - application/json
+      description: Get SMB Panel Info
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.SMBPanel'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get SMB Panel Info
+      tags:
+      - dashboard
+  /api/get-hostname:
+    get:
+      description: Get hostname
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get hostname
+      tags:
+      - hostname
+  /api/group-user-maps-by-group/{id}:
+    get:
+      description: Get group user map list
+      parameters:
+      - description: Group ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get group user map list
+      tags:
+      - group-user-maps
+    post:
+      description: Set group user map list
+      parameters:
+      - description: Group ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Users Del Append
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/main.UsersDelAppend'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Set group user map list
+      tags:
+      - group-user-maps
+  /api/group-user-maps-by-user/{id}:
+    get:
+      description: Get group user map list
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get group user map list
+      tags:
+      - group-user-maps
+    post:
+      description: Set group user map list
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: GroupsDelAppend
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/main.GroupsDelAppend'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Set group user map list
+      tags:
+      - group-user-maps
+  /api/groups:
+    get:
+      description: Get group list
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get group list
+      tags:
+      - group
+    post:
+      description: Create group
+      parameters:
+      - description: Group Create
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/main.GroupCreate'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Create group
+      tags:
+      - group
+  /api/groups/{id}:
+    delete:
+      description: Delete group
+      parameters:
+      - description: Group ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Delete group
+      tags:
+      - group
+    get:
+      description: Get group
+      parameters:
+      - description: Group ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get group
+      tags:
+      - group
+    put:
+      description: Update group
+      parameters:
+      - description: Group ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Group Update
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/main.GroupUpdate'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Update group
+      tags:
+      - group
+  /api/groups/assigned-users/{id}:
+    get:
+      description: Get assigned users by group id
+      parameters:
+      - description: Group ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get assigned users by group id
+      tags:
+      - group
+  /api/groups/group-id-taken/{groupId}:
+    get:
+      description: Check if a group exists
+      parameters:
+      - description: Group ID
+        in: path
+        name: groupId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Check if a group exists
+      tags:
+      - group
+  /api/hydralog:
+    get:
+      consumes:
+      - application/json
+      description: List hydra logs only
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: List hydra logs only
+      tags:
+      - syslog
+  /api/ksan/active:
+    get:
+      consumes:
+      - application/json
+      description: Get KSAN Configuration
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.KsanActive'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get KSAN Configuration
+      tags:
+      - KSAN
+  /api/ksan/configuration:
+    get:
+      consumes:
+      - application/json
+      description: Get KSAN Configuration
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.KsanConfiguration'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.KsanConfiguration'
+      summary: Get KSAN Configuration
+      tags:
+      - KSAN
+    post:
+      consumes:
+      - application/json
+      description: Add KSAN Configuration
+      parameters:
+      - description: Ksan Configuration
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/main.KsanConfiguration'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Add KSAN Configuration
+      tags:
+      - KSAN
+    put:
+      consumes:
+      - application/json
+      description: Update KSAN Configuration
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Update KSAN Configuration
+      tags:
+      - KSAN
+  /api/ksan/configuration/check:
+    post:
+      consumes:
+      - application/json
+      description: Check KSAN Configuration
+      parameters:
+      - description: Ksan Configuration
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/main.KsanConfiguration'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Check KSAN Configuration
+      tags:
+      - KSAN
+  /api/ksan/configuration/gw:
+    get:
+      consumes:
+      - application/json
+      description: Get KSAN GW Configuration
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.KsanGWConfig'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get KSAN GW Configuration
+      tags:
+      - KSAN
+  /api/ksan/diskpools:
+    get:
+      consumes:
+      - application/json
+      description: Get KSAN Disk Pools
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.KsanDiskPools'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get KSAN Disk Pools
+      tags:
+      - KSAN
+  /api/ksan/user/{userName}:
+    get:
+      consumes:
+      - application/json
+      description: Get KSAN User
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.KsanUser'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get KSAN User
+      tags:
+      - KSAN
+  /api/login:
+    post:
+      consumes:
+      - application/json
+      description: Login
+      parameters:
+      - description: username and password
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/main.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Login
+      tags:
+      - auth
+  /api/logout:
+    post:
+      consumes:
+      - application/json
+      description: Logout
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Logout
+      tags:
+      - auth
+  /api/network/dns:
+    get:
+      description: Get DNS servers
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: DNS servers
+          schema:
+            items:
+              type: string
+            type: array
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get DNS servers
+      tags:
+      - network
+  /api/network/interface-name-taken/{interfaceName}:
+    get:
+      consumes:
+      - application/json
+      description: Check if interface name is taken
+      parameters:
+      - description: Interface name
+        in: path
+        name: interfaceName
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Interface name taken
+          schema:
+            type: boolean
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Check if interface name is taken
+      tags:
+      - network
+  /api/network/interfaces:
+    get:
+      description: Get information on all network interfaces
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get network interfaces
+      tags:
+      - network
+  /api/network/interfaces/{interface}:
+    get:
+      description: Get information on a particular network interface
+      parameters:
+      - default: ens161
+        description: interface name
+        in: path
+        name: interface
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get network interface
+      tags:
+      - network
+    put:
+      description: Edit a network interface
+      parameters:
+      - default: ens161
+        description: interface name
+        in: path
+        name: interface
+        required: true
+        type: string
+      - description: interface name
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/main.PutNetworkInterface'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Put network interface
+      tags:
+      - network
+  /api/network/interfaces/bond:
+    post:
+      consumes:
+      - application/json
+      description: Create bond interface
+      parameters:
+      - description: Bond interface
+        in: body
+        name: bond
+        required: true
+        schema:
+          $ref: '#/definitions/main.BondInterface'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Create bond interface
+      tags:
+      - bond
+  /api/network/interfaces/bond/{interface}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete bond interface
+      parameters:
+      - default: bond0
+        description: Bond interface name
+        in: path
+        name: interface
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Bond interface deleted
+          schema:
+            type: string
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Delete bond interface
+      tags:
+      - bond
+  /api/network/interfaces/control:
+    put:
+      consumes:
+      - application/json
+      description: Activate / deactivate interface
+      parameters:
+      - description: Interface
+        in: body
+        name: interface
+        required: true
+        schema:
+          $ref: '#/definitions/main.ControlInterface'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Interface controlled
+          schema:
+            type: string
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Control interface
+      tags:
+      - network
+  /api/network/interfaces/vlan:
+    post:
+      consumes:
+      - application/json
+      description: Create a VLAN
+      parameters:
+      - description: interface name
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/main.NetworkInterfaceVLAN'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Create VLAN
+      tags:
+      - vlan
+  /api/network/interfaces/vlan/{interface}:
+    delete:
+      description: Delete a network interface
+      parameters:
+      - default: ens102.10
+        description: interface name
+        in: path
+        name: interface
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Delete network interface
+      tags:
+      - vlan
+  /api/network/management-interface:
+    put:
+      consumes:
+      - application/json
+      description: Set management interface
+      parameters:
+      - description: Management interface
+        in: body
+        name: management_interface
+        required: true
+        schema:
+          $ref: '#/definitions/main.ManagementInterfaceUpdate'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Management interface set
+          schema:
+            type: string
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Set management interface
+      tags:
+      - network
+  /api/nfs/config:
+    get:
+      consumes:
+      - application/json
+      description: Get nfs config
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.NFSConf'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get nfs config
+      tags:
+      - nfs
+    put:
+      consumes:
+      - application/json
+      description: Update nfs config
+      parameters:
+      - description: NFS config
+        in: body
+        name: nfs_conf
+        required: true
+        schema:
+          $ref: '#/definitions/main.NFSConf_Post'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Successfully updated
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Update nfs config
+      tags:
+      - nfs
+  /api/nfs/config/service:
+    get:
+      consumes:
+      - application/json
+      description: Check if nfs service is active
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Check if nfs service is active
+      tags:
+      - nfs
+  /api/nfs/export-name-taken/{export_name}:
+    get:
+      consumes:
+      - application/json
+      description: Create nfs export
+      parameters:
+      - description: export_name
+        in: path
+        name: export_name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Create nfs export
+      tags:
+      - nfs
+  /api/nfs/exports:
+    get:
+      consumes:
+      - application/json
+      description: Get nfs exports
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/main.Export_Get'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get nfs exports
+      tags:
+      - nfs
+    post:
+      consumes:
+      - application/json
+      description: Add nfs export
+      parameters:
+      - description: export
+        in: body
+        name: export
+        required: true
+        schema:
+          $ref: '#/definitions/main.Export_Post'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Add nfs export
+      tags:
+      - nfs
+  /api/nfs/exports/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete nfs export
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Delete nfs export
+      tags:
+      - nfs
+    get:
+      consumes:
+      - application/json
+      description: Get nfs export by id
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Export'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get nfs export by id
+      tags:
+      - nfs
+    put:
+      consumes:
+      - application/json
+      description: Update nfs export
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: export
+        in: body
+        name: export
+        required: true
+        schema:
+          $ref: '#/definitions/main.Export_Put'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Update nfs export
+      tags:
+      - nfs
+  /api/nfs/exports/{id}/permissions:
+    get:
+      consumes:
+      - application/json
+      description: Get permissions by export id
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/main.NFSPermission'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get permissions by export id
+      tags:
+      - nfs
+  /api/nfs/exports/{id}/toggle:
+    put:
+      consumes:
+      - application/json
+      description: Enable or disable nfs export
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Enable or disable nfs export
+      tags:
+      - nfs
+  /api/nfs/exports/permissions:
+    post:
+      consumes:
+      - application/json
+      description: Add permission
+      parameters:
+      - description: export
+        in: body
+        name: export
+        required: true
+        schema:
+          $ref: '#/definitions/main.NFSPermission_Post'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Add permission
+      tags:
+      - nfs
+  /api/nfs/exports/permissions/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete permission by id
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Delete permission by id
+      tags:
+      - nfs
+    get:
+      consumes:
+      - application/json
+      description: Get permission by permission id
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.NFSPermission'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get permission by permission id
+      tags:
+      - nfs
+    put:
+      consumes:
+      - application/json
+      description: Update permission
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: permission
+        in: body
+        name: permission
+        required: true
+        schema:
+          $ref: '#/definitions/main.NFSPermission_Post'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Update permission
+      tags:
+      - nfs
+  /api/nfs/exports/permissions/{id}/toggle:
+    put:
+      consumes:
+      - application/json
+      description: Enable or disable permission
+      parameters:
+      - description: id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Enable or disable permission
+      tags:
+      - nfs
+  /api/notifications:
+    get:
+      consumes:
+      - application/json
+      description: Get Notifications
+      parameters:
+      - description: Limit
+        in: query
+        name: limit
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Log'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get Notifications
+      tags:
+      - notifications
+  /api/refresh:
+    post:
+      consumes:
+      - application/json
+      description: Refresh token
+      parameters:
+      - description: refresh token
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/main.RefreshToken'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Refresh token
+      tags:
+      - auth
+  /api/s3/configuration:
+    get:
+      consumes:
+      - application/json
+      description: Get S3 Configuration
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.S3ConfigurationGet'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get S3 Configuration
+      tags:
+      - S3
+    post:
+      consumes:
+      - application/json
+      description: Add S3 Configuration
+      parameters:
+      - description: S3 Configuration
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/main.S3ConfigurationPost'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Add S3 Configuration
+      tags:
+      - S3
+  /api/s3browser/buckets:
+    delete:
+      description: Delete Bucket
+      parameters:
+      - description: S3 Delete Bucket Request
+        in: body
+        name: credentials
+        required: true
+        schema:
+          $ref: '#/definitions/main.S3BucketRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal server error
+          schema:
+            type: string
+      summary: Delete Bucket
+      tags:
+      - s3browser
+    post:
+      description: Create New Bucket
+      parameters:
+      - description: S3 New Bucket Request
+        in: body
+        name: credentials
+        required: true
+        schema:
+          $ref: '#/definitions/main.S3BucketRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal server error
+          schema:
+            type: string
+      summary: Create New Bucket
+      tags:
+      - s3browser
+    put:
+      description: List Buckets
+      parameters:
+      - description: S3 Session Credentials
+        in: body
+        name: credentials
+        required: true
+        schema:
+          $ref: '#/definitions/main.S3SessionCredentials'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal server error
+          schema:
+            type: string
+      summary: List Buckets
+      tags:
+      - s3browser
+  /api/s3browser/buckets/acl:
+    post:
+      description: Change Bucket ACL
+      parameters:
+      - description: S3 Bucket ACL Change Request
+        in: body
+        name: credentials
+        required: true
+        schema:
+          $ref: '#/definitions/main.S3BucketACLRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal server error
+          schema:
+            type: string
+      summary: Change Bucket ACL
+      tags:
+      - s3browser
+    put:
+      description: Get Bucket ACL
+      parameters:
+      - description: S3 Bucket ACL Request
+        in: body
+        name: credentials
+        required: true
+        schema:
+          $ref: '#/definitions/main.S3BucketRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal server error
+          schema:
+            type: string
+      summary: Get Bucket ACL
+      tags:
+      - s3browser
+  /api/s3browser/buckets/encryption:
+    delete:
+      description: Delete Bucket Encryption
+      parameters:
+      - description: S3 Bucket Encryption Delete Request
+        in: body
+        name: credentials
+        required: true
+        schema:
+          $ref: '#/definitions/main.S3BucketRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal server error
+          schema:
+            type: string
+      summary: Delete Bucket Encryption
+      tags:
+      - s3browser
+    put:
+      description: Get Bucket Encryption
+      parameters:
+      - description: S3 Bucket Request
+        in: body
+        name: credentials
+        required: true
+        schema:
+          $ref: '#/definitions/main.S3BucketRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal server error
+          schema:
+            type: string
+      summary: Get Bucket Encryption
+      tags:
+      - s3browser
+  /api/s3browser/buckets/encryption-sse:
+    post:
+      description: Encrypt Bucket SSE
+      parameters:
+      - description: S3 Bucket SSE Encryption Request
+        in: body
+        name: credentials
+        required: true
+        schema:
+          $ref: '#/definitions/main.S3BucketRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal server error
+          schema:
+            type: string
+      summary: Encrypt Bucket SSE
+      tags:
+      - s3browser
+  /api/s3browser/buckets/lifecycle:
+    delete:
+      description: Delete Bucket Lifecycle Rules
+      parameters:
+      - description: S3 Bucket Request
+        in: body
+        name: credentials
+        required: true
+        schema:
+          $ref: '#/definitions/main.S3BucketRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal server error
+          schema:
+            type: string
+      summary: Delete Bucket Lifecycle Rules
+      tags:
+      - s3browser
+    post:
+      description: Change Bucket Lifecycle Rules
+      parameters:
+      - description: S3 Bucket Lifecycle Rules Request
+        in: body
+        name: credentials
+        required: true
+        schema:
+          $ref: '#/definitions/main.S3BucketLifecycleRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal server error
+          schema:
+            type: string
+      summary: Change Bucket Lifecycle Rules
+      tags:
+      - s3browser
+    put:
+      description: Get Bucket Lifecycle Rules
+      parameters:
+      - description: S3 Bucket Lifecycle Rules Request
+        in: body
+        name: credentials
+        required: true
+        schema:
+          $ref: '#/definitions/main.S3BucketRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal server error
+          schema:
+            type: string
+      summary: Get Bucket Lifecycle Rules
+      tags:
+      - s3browser
+  /api/s3browser/buckets/logging:
+    post:
+      description: Set Bucket Logging
+      parameters:
+      - description: S3 Bucket Logging Request
+        in: body
+        name: credentials
+        required: true
+        schema:
+          $ref: '#/definitions/main.S3BucketLoggingRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal server error
+          schema:
+            type: string
+      summary: Set Bucket Logging
+      tags:
+      - s3browser
+    put:
+      description: Get Bucket Logging
+      parameters:
+      - description: S3 Bucket Request
+        in: body
+        name: credentials
+        required: true
+        schema:
+          $ref: '#/definitions/main.S3BucketRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal server error
+          schema:
+            type: string
+      summary: Get Bucket Logging
+      tags:
+      - s3browser
+  /api/s3browser/buckets/tagging:
+    post:
+      description: Set Bucket Tagging
+      parameters:
+      - description: S3 Bucket Tagging Request
+        in: body
+        name: credentials
+        required: true
+        schema:
+          $ref: '#/definitions/main.S3BucketTaggingRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal server error
+          schema:
+            type: string
+      summary: Set Bucket Tagging
+      tags:
+      - s3browser
+    put:
+      description: Get Bucket Tagging
+      parameters:
+      - description: S3 Bucket Request
+        in: body
+        name: credentials
+        required: true
+        schema:
+          $ref: '#/definitions/main.S3BucketRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal server error
+          schema:
+            type: string
+      summary: Get Bucket Tagging
+      tags:
+      - s3browser
+  /api/s3browser/buckets/versioning:
+    post:
+      description: Set Bucket Versioning
+      parameters:
+      - description: S3 Bucket Versioning Request
+        in: body
+        name: credentials
+        required: true
+        schema:
+          $ref: '#/definitions/main.S3BucketVersioningRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal server error
+          schema:
+            type: string
+      summary: Set Bucket Versioning
+      tags:
+      - s3browser
+    put:
+      description: Get Bucket Lifecycle Rules
+      parameters:
+      - description: S3 Bucket Request
+        in: body
+        name: credentials
+        required: true
+        schema:
+          $ref: '#/definitions/main.S3BucketRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal server error
+          schema:
+            type: string
+      summary: Get Bucket Lifecycle Rules
+      tags:
+      - s3browser
+  /api/s3browser/download:
+    post:
+      description: Download File
+      parameters:
+      - description: S3 Download File Request
+        in: body
+        name: credentials
+        required: true
+        schema:
+          $ref: '#/definitions/main.S3BucketObjectRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal server error
+          schema:
+            type: string
+      summary: Download File
+      tags:
+      - s3browser
+  /api/s3browser/folders:
+    delete:
+      description: Delete Folder
+      parameters:
+      - description: S3 Delete Folder Request
+        in: body
+        name: credentials
+        required: true
+        schema:
+          $ref: '#/definitions/main.S3BucketObjectRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal server error
+          schema:
+            type: string
+      summary: Delete Folder
+      tags:
+      - s3browser
+    post:
+      description: Create New Folder
+      parameters:
+      - description: S3 New Folder Request
+        in: body
+        name: credentials
+        required: true
+        schema:
+          $ref: '#/definitions/main.S3BucketObjectRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal server error
+          schema:
+            type: string
+      summary: Create New Folder
+      tags:
+      - s3browser
+  /api/s3browser/headobject:
+    put:
+      description: Get Head Object
+      parameters:
+      - description: S3 Bucket Object Request
+        in: body
+        name: credentials
+        required: true
+        schema:
+          $ref: '#/definitions/main.S3BucketObjectRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal server error
+          schema:
+            type: string
+      summary: Get Head Object
+      tags:
+      - s3browser
+  /api/s3browser/objects:
+    delete:
+      description: Delete File
+      parameters:
+      - description: S3 Delete File Request
+        in: body
+        name: credentials
+        required: true
+        schema:
+          $ref: '#/definitions/main.S3BucketObjectRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal server error
+          schema:
+            type: string
+      summary: Delete File
+      tags:
+      - s3browser
+    put:
+      description: List Bucket Objects
+      parameters:
+      - description: S3 Bucket Object List Request
+        in: body
+        name: credentials
+        required: true
+        schema:
+          $ref: '#/definitions/main.S3BucketObjectListRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal server error
+          schema:
+            type: string
+      summary: List Bucket Objects
+      tags:
+      - s3browser
+  /api/s3browser/session:
+    post:
+      consumes:
+      - application/json
+      description: Create S3 Session
+      parameters:
+      - description: S3 Session Credentials
+        in: body
+        name: credentials
+        required: true
+        schema:
+          $ref: '#/definitions/main.S3SessionCredentials'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Session created
+          schema:
+            type: string
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal server error
+          schema:
+            type: string
+      summary: Create S3 Session
+      tags:
+      - s3browser
+  /api/s3browser/upload:
+    post:
+      description: Upload File
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+        "400":
+          description: Bad request
+          schema:
+            type: string
+        "500":
+          description: Internal server error
+          schema:
+            type: string
+      summary: Upload File
+      tags:
+      - s3browser
+  /api/smb/config:
+    get:
+      consumes:
+      - application/json
+      description: Get smb config
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.SMBConf'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get smb config
+      tags:
+      - smb
+    put:
+      consumes:
+      - application/json
+      description: Update smb config
+      parameters:
+      - description: SMB config
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/main.SMBConfPut'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Update smb config
+      tags:
+      - smb
+  /api/smb/config/default_veto_files:
+    get:
+      consumes:
+      - application/json
+      description: Get Default Veto Files
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get Default Veto Files
+      tags:
+      - smb
+  /api/smb/dataset-info/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get dataset path by id
+      parameters:
+      - description: Dataset id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Dataset'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get dataset path by id
+      tags:
+      - smb
+  /api/smb/datasets:
+    get:
+      consumes:
+      - application/json
+      description: Get dataset list
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/main.Dataset'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get dataset list
+      tags:
+      - smb
+  /api/smb/datasets/name-taken/{poolId}/{datasetName}:
+    get:
+      consumes:
+      - application/json
+      description: Check if dataset exists
+      parameters:
+      - description: Dataset name
+        in: path
+        name: datasetName
+        required: true
+        type: string
+      - description: Pool name
+        in: path
+        name: poolName
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Dataset exists
+          schema:
+            type: boolean
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Check if dataset exists
+      tags:
+      - smb
+  /api/smb/pools:
+    get:
+      consumes:
+      - application/json
+      description: Get pool list
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/main.Pool'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get pool list
+      tags:
+      - smb
+  /api/smb/service:
+    get:
+      consumes:
+      - application/json
+      description: Check if smb service is active
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Smb service is active
+          schema:
+            type: boolean
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Check if smb service is active
+      tags:
+      - smb
+  /api/smb/service/start:
+    put:
+      consumes:
+      - application/json
+      description: Start smb service
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Smb service started
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Start smb service
+      tags:
+      - smb
+  /api/smb/service/stop:
+    put:
+      consumes:
+      - application/json
+      description: Stop smb service
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Smb service stopped
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Stop smb service
+      tags:
+      - smb
+  /api/smb/shares:
+    get:
+      consumes:
+      - application/json
+      description: Get all shares
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/main.Share'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get all shares
+      tags:
+      - smb
+    post:
+      consumes:
+      - application/json
+      description: Create share
+      parameters:
+      - description: Share
+        in: body
+        name: dataset
+        required: true
+        schema:
+          $ref: '#/definitions/main.SharePost'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Share created
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Create share
+      tags:
+      - smb
+  /api/smb/shares/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete share
+      parameters:
+      - description: Share id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Delete share
+      tags:
+      - smb
+    get:
+      consumes:
+      - application/json
+      description: Get share by id
+      parameters:
+      - description: Share id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Share'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get share by id
+      tags:
+      - smb
+    put:
+      consumes:
+      - application/json
+      description: Update share
+      parameters:
+      - description: Share ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Share
+        in: body
+        name: dataset
+        required: true
+        schema:
+          $ref: '#/definitions/main.SharePost'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: SMB config updated
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Update share
+      tags:
+      - smb
+  /api/smb/shares/{id}/groups:
+    get:
+      consumes:
+      - application/json
+      description: Get groups for share
+      parameters:
+      - description: Share id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/main.SMBGroupMap'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get groups for share
+      tags:
+      - smb
+    put:
+      consumes:
+      - application/json
+      description: Set groups for share
+      parameters:
+      - description: Share id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Groups
+        in: body
+        name: groups
+        required: true
+        schema:
+          items:
+            $ref: '#/definitions/main.SMBGroups'
+          type: array
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Set groups for share
+      tags:
+      - smb
+  /api/smb/shares/{id}/groups/{groupId}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete group from share
+      parameters:
+      - description: Share id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Group id
+        in: path
+        name: groupId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Delete group from share
+      tags:
+      - smb
+  /api/smb/shares/{id}/toggle:
+    put:
+      consumes:
+      - application/json
+      description: Enable / Disable share
+      parameters:
+      - description: Share id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Enable / Disable share
+      tags:
+      - smb
+  /api/smb/shares/{id}/users:
+    get:
+      consumes:
+      - application/json
+      description: Get users for share
+      parameters:
+      - description: Share id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/main.SMBUserMap'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get users for share
+      tags:
+      - smb
+    put:
+      consumes:
+      - application/json
+      description: Set users for share
+      parameters:
+      - description: Share id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Users
+        in: body
+        name: users
+        required: true
+        schema:
+          items:
+            $ref: '#/definitions/main.SMBUsers'
+          type: array
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Set users for share
+      tags:
+      - smb
+  /api/smb/shares/{id}/users/{userId}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete user from share
+      parameters:
+      - description: Share id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: User id
+        in: path
+        name: userId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Delete user from share
+      tags:
+      - smb
+  /api/smb/shares/name-taken/{shareName}:
+    get:
+      consumes:
+      - application/json
+      description: Check if share exists
+      parameters:
+      - description: Share name
+        in: path
+        name: shareName
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Check if share exists
+      tags:
+      - smb
+  /api/storage/filesystems/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get Filesystem by ID
+      parameters:
+      - description: Filesystem ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.ZFileSystem'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get Filesystem by ID
+      tags:
+      - storage
+    put:
+      consumes:
+      - application/json
+      description: Modify Filesystem
+      parameters:
+      - description: Filesystem ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Modify Filesystem
+        in: body
+        name: modify_body
+        required: true
+        schema:
+          $ref: '#/definitions/main.ZFileSystem_Modify'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      tags:
+      - storage
+  /api/storage/filesystems/{id}/services:
+    get:
+      consumes:
+      - application/json
+      description: Check if Filesystem is used by a service
+      parameters:
+      - description: Filesystem ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.ZFilesystemCheckService'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Check if Filesystem is used by a service
+      tags:
+      - storage
+  /api/storage/filesystems/{id}/snapshots:
+    post:
+      consumes:
+      - application/json
+      description: Create snapshot for dataset
+      parameters:
+      - description: Dataset ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Snapshot
+        in: body
+        name: ZSnapshot_Post
+        required: true
+        schema:
+          $ref: '#/definitions/main.ZSnapshot_Post'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Snapshot created successfully
+          schema:
+            type: string
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Create snapshot
+      tags:
+      - storage
+  /api/storage/filesystems/check:
+    post:
+      consumes:
+      - application/json
+      description: Check if Filesystem name is available
+      parameters:
+      - description: Filesystem name
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/main.ZFilesystemCheckName'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: boolean
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Check if Filesystem name is available
+      tags:
+      - storage
+  /api/storage/filesystems/clone:
+    post:
+      consumes:
+      - application/json
+      description: Clone Filesystem from Snapshot
+      parameters:
+      - description: Filesystem clone
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/main.ZFilesystemClone'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Clone Filesystem from Snapshot
+      tags:
+      - storage
+  /api/storage/pools:
+    get:
+      consumes:
+      - application/json
+      description: List Pools
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/main.ZPool_Get'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: List Pools
+      tags:
+      - storage
+    post:
+      consumes:
+      - application/json
+      description: Create Pool
+      parameters:
+      - description: Pool
+        in: body
+        name: pool
+        required: true
+        schema:
+          $ref: '#/definitions/main.ZPool_Post'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Create Pool
+      tags:
+      - storage
+  /api/storage/pools/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Pool
+      parameters:
+      - description: Pool ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Delete Pool
+      tags:
+      - storage
+    get:
+      consumes:
+      - application/json
+      description: Get Pool By Id
+      parameters:
+      - description: Pool Id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.ZPool_Get'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get Pool By Id
+      tags:
+      - storage
+    put:
+      consumes:
+      - application/json
+      description: Modify a pool
+      parameters:
+      - description: Pool ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Pool
+        in: body
+        name: pool
+        required: true
+        schema:
+          $ref: '#/definitions/main.ZPool_Modify'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Pool modified
+          schema:
+            type: string
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Modify a pool
+      tags:
+      - storage
+  /api/storage/pools/{id}/diskgroups:
+    delete:
+      consumes:
+      - application/json
+      description: Delete disk group from pool
+      parameters:
+      - description: DiskGroup
+        in: body
+        name: diskGroup
+        required: true
+        schema:
+          $ref: '#/definitions/main.DeleteDiskGroup'
+      - description: Pool ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Successfully deleted disk group
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Delete disk group from pool
+      tags:
+      - storage
+    post:
+      consumes:
+      - application/json
+      description: Add new disk group to pool
+      parameters:
+      - description: DiskGroups
+        in: body
+        name: diskGroup
+        required: true
+        schema:
+          $ref: '#/definitions/main.AddDiskGroups'
+      - description: Pool ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Successfully added new disk group
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Add new disk group to pool
+      tags:
+      - storage
+  /api/storage/pools/{id}/disks:
+    get:
+      consumes:
+      - application/json
+      description: List Disks In Pool
+      parameters:
+      - description: Pool Id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: List Disks In Pool
+      tags:
+      - storage
+  /api/storage/pools/{id}/export:
+    post:
+      consumes:
+      - application/json
+      description: Export pool
+      parameters:
+      - description: Pool ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Successfully exported pool
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Export pool
+      tags:
+      - storage
+  /api/storage/pools/{id}/failed-status:
+    get:
+      consumes:
+      - application/json
+      description: Get failed pool status
+      parameters:
+      - description: Pool ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Successfully retrieved pool status
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get failed pool status
+      tags:
+      - storage
+  /api/storage/pools/{id}/filesystems:
+    get:
+      consumes:
+      - application/json
+      description: Get Filesystems by Pool ID
+      parameters:
+      - description: Pool ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/main.ZFileSystem'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get Filesystems by Pool ID
+      tags:
+      - storage
+    post:
+      consumes:
+      - application/json
+      description: Create Filesystem
+      parameters:
+      - description: Pool ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Filesystem
+        in: body
+        name: filesystem
+        required: true
+        schema:
+          $ref: '#/definitions/main.ZFilesystem_Post'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Create Filesystem
+      tags:
+      - storage
+  /api/storage/pools/{id}/filesystems/{filesystem_id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete Filesystem
+      parameters:
+      - description: Pool ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Filesystem ID
+        in: path
+        name: filesystem_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Delete Filesystem
+      tags:
+      - storage
+  /api/storage/pools/{id}/import:
+    post:
+      consumes:
+      - application/json
+      description: Import pool
+      parameters:
+      - description: Pool ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Successfully imported pool
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Import pool
+      tags:
+      - storage
+  /api/storage/pools/{id}/replace-disk:
+    post:
+      consumes:
+      - application/json
+      description: Replace disk
+      parameters:
+      - description: Pool ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: DiskReplacement
+        in: body
+        name: diskReplacement
+        required: true
+        schema:
+          $ref: '#/definitions/main.DiskReplacement'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Successfully replaced disk
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Replace disk
+      tags:
+      - storage
+  /api/storage/pools/{id}/scrub:
+    delete:
+      consumes:
+      - application/json
+      description: cancel scrub by pool id
+      parameters:
+      - description: Pool Id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Scrub canceled
+          schema:
+            type: string
+      summary: Cancel scrub by pool id
+      tags:
+      - scrub
+    get:
+      consumes:
+      - application/json
+      description: Get scrub status
+      parameters:
+      - description: Pool ID
+        in: path
+        name: pool_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Scrub status
+          schema:
+            $ref: '#/definitions/main.ScrubStatus'
+      summary: Get scrub status
+      tags:
+      - scrub
+    post:
+      consumes:
+      - application/json
+      description: create / update scrub scheduler by pool id
+      parameters:
+      - description: Pool Id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Cron Job
+        in: body
+        name: cronJob
+        required: true
+        schema:
+          $ref: '#/definitions/main.CronJob_POST'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.CronJob'
+      summary: Create / update scrub scheduler by pool id
+      tags:
+      - scrub
+  /api/storage/pools/{id}/scrub-list:
+    get:
+      consumes:
+      - application/json
+      description: Get scrub list
+      parameters:
+      - description: Pool ID
+        in: path
+        name: pool_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Scrub list
+          schema:
+            items:
+              $ref: '#/definitions/main.ZScrub'
+            type: array
+      summary: Get scrub list
+      tags:
+      - scrub
+  /api/storage/pools/{id}/scrub-once:
+    post:
+      consumes:
+      - application/json
+      description: start scrub by pool id
+      parameters:
+      - description: Pool Id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Scrub started
+          schema:
+            type: string
+      summary: Start scrub by pool id
+      tags:
+      - scrub
+  /api/storage/pools/{id}/scrub-scheduler:
+    get:
+      consumes:
+      - application/json
+      description: get scrub scheduler by pool id
+      parameters:
+      - description: Pool Id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.CronJob'
+      summary: Show scrub scheduler by pool id
+      tags:
+      - scrub
+  /api/storage/pools/{id}/services:
+    get:
+      description: Check if datasets in pool are used by services
+      parameters:
+      - description: Pool ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Pool deleted
+          schema:
+            type: string
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Check if datasets in pool are used by services
+      tags:
+      - storage
+  /api/storage/pools/{id}/status:
+    get:
+      description: Show all disks in pool
+      parameters:
+      - description: Pool ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/main.ZpoolStatus'
+            type: array
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Show all disks in pool
+      tags:
+      - storage
+  /api/storage/pools/check/{name}:
+    get:
+      consumes:
+      - application/json
+      description: Check if pool name is available
+      parameters:
+      - description: Pool name
+        in: path
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Successfully checked if pool name is available
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Check if pool name is available
+      tags:
+      - storage
+  /api/storage/pools/disks:
+    get:
+      consumes:
+      - application/json
+      description: List Available Disks
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/main.Disk'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: List Available Disks
+      tags:
+      - storage
+  /api/storage/pools/import-list:
+    get:
+      consumes:
+      - application/json
+      description: Get import list
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Successfully retrieved import list
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get import list
+      tags:
+      - storage
+    post:
+      consumes:
+      - application/json
+      description: Import pool list
+      parameters:
+      - description: Pool names
+        in: body
+        name: poolNames
+        required: true
+        schema:
+          items:
+            type: string
+          type: array
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Successfully imported pool list
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Import pool list
+      tags:
+      - storage
+  /api/storage/scrubs/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: remove scrub record by scrub id
+      parameters:
+      - description: Scrub Id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Scrub record removed
+          schema:
+            type: string
+      summary: Remove scrub record by scrub id
+      tags:
+      - scrub
+  /api/storage/snapshots:
+    get:
+      consumes:
+      - application/json
+      description: List snapshots for dataset
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Snapshot list
+          schema:
+            $ref: '#/definitions/main.SnapshotList'
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: List snapshots
+      tags:
+      - storage
+  /api/storage/snapshots/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete snapshot
+      parameters:
+      - description: Snapshot ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Snapshot deleted successfully
+          schema:
+            type: string
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Delete snapshot
+      tags:
+      - storage
+    get:
+      description: Get snapshot by id
+      parameters:
+      - description: Snapshot ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Snapshot_Get'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get snapshot by id
+      tags:
+      - storage
+  /api/storage/snapshots/{id}/rollback:
+    post:
+      consumes:
+      - application/json
+      description: Rollback to snapshot
+      parameters:
+      - description: Snapshot ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Snapshot rolled back successfully
+          schema:
+            type: string
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Rollback to snapshot
+      tags:
+      - storage
+  /api/storage/snapshots/check:
+    post:
+      consumes:
+      - application/json
+      description: Check if snapshot name is available
+      parameters:
+      - description: Snapshot name
+        in: body
+        name: snapshot_name
+        required: true
+        schema:
+          $ref: '#/definitions/main.SnapshotNameCheck'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Snapshot name is available
+          schema:
+            type: boolean
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Check snapshot name
+      tags:
+      - storage
+  /api/syslog:
+    get:
+      consumes:
+      - application/json
+      description: List servers
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: List servers
+      tags:
+      - syslog
+  /api/syslog/list:
+    get:
+      consumes:
+      - application/json
+      description: List logs
+      parameters:
+      - default: "2023-03-29"
+        description: start_date
+        in: query
+        name: start_date
+        required: true
+        type: string
+      - default: "2023-03-29"
+        description: end_date
+        in: query
+        name: end_date
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: List logs
+      tags:
+      - syslog
+  /api/syslog/list/{hostname}:
+    get:
+      consumes:
+      - application/json
+      description: List logs by hostname
+      parameters:
+      - default: osd1
+        description: hostname
+        in: path
+        name: hostname
+        required: true
+        type: string
+      - default: "2023-03-29"
+        description: start_date
+        in: query
+        name: start_date
+        required: true
+        type: string
+      - default: "2023-03-29"
+        description: end_date
+        in: query
+        name: end_date
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: List logs by hostname
+      tags:
+      - syslog
+  /api/syslog/list/hosts:
+    get:
+      description: List all hosts
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: List all hosts
+      tags:
+      - syslog
+  /api/system/grafana-ip:
+    get:
+      description: Get Grafana IP
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Grafana IP
+          schema:
+            type: string
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get Grafana IP
+      tags:
+      - system
+  /api/system/log-configuration:
+    get:
+      description: Get log configuration
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Log configuration
+          schema:
+            $ref: '#/definitions/main.LogConfig'
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get log configuration
+      tags:
+      - system
+    put:
+      consumes:
+      - application/json
+      description: Set log configuration
+      parameters:
+      - description: Log configuration
+        in: body
+        name: log_configuration
+        required: true
+        schema:
+          $ref: '#/definitions/main.LogConfigPost'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Log configuration set
+          schema:
+            type: string
+        "400":
+          description: Invalid request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Set log configuration
+      tags:
+      - system
+  /api/system/time:
+    get:
+      description: Get time
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get time
+      tags:
+      - time
+    put:
+      consumes:
+      - application/json
+      description: Change time
+      parameters:
+      - description: new time
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/main.TimeData'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Change time
+      tags:
+      - time
+  /api/system/time/reset:
+    post:
+      consumes:
+      - application/json
+      description: Reset chrony
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Reset chrony
+      tags:
+      - time
+  /api/system/time/timezones:
+    get:
+      consumes:
+      - application/json
+      description: Get timezones
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get timezones
+      tags:
+      - time
+  /api/users:
+    get:
+      description: Get user list
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get user list
+      tags:
+      - user
+    post:
+      consumes:
+      - application/json
+      description: Create user
+      parameters:
+      - description: User
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/main.UserCreate'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Create user
+      tags:
+      - user
+  /api/users/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete user
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Delete user
+      tags:
+      - user
+    get:
+      description: Get user
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get user
+      tags:
+      - user
+    put:
+      consumes:
+      - application/json
+      description: Update user
+      parameters:
+      - description: ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: User
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/main.UserUpdate'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Update user
+      tags:
+      - user
+  /api/users/{id}/s3-credentials:
+    delete:
+      consumes:
+      - application/json
+      description: Delete S3 Credentials for User
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: S3 Credentials
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/main.S3Credentials'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Delete S3 Credentials for User
+      tags:
+      - user
+    get:
+      description: List S3 Credentials for User
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/main.S3Credentials'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: List S3 Credentials for User
+      tags:
+      - user
+    post:
+      consumes:
+      - application/json
+      description: Create S3 Credentials for User
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: S3 Credentials
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/main.S3Credentials'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Create S3 Credentials for User
+      tags:
+      - user
+  /api/users/assigned-groups/{id}:
+    get:
+      description: Get assigned groups by user id
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Get assigned groups by user id
+      tags:
+      - user
+  /api/users/s3-credentials:
+    get:
+      description: Generate S3 Credentials
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.S3Credentials'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Generate S3 Credentials
+      tags:
+      - user
+  /api/users/user-id-taken/{userId}:
+    get:
+      description: Check if a user exists
+      parameters:
+      - description: User ID
+        in: path
+        name: userId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/main.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/main.Response'
+      summary: Check if a user exists
+      tags:
+      - user
+swagger: "2.0"
